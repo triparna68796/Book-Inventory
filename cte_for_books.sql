@@ -70,3 +70,17 @@ WHERE rb.rn IS NULL;
 --     FROM books
 --     WHERE status = 'read'; use ctrl and / for making comments
 
+-- Books longer than the average page count
+SELECT title, pages
+FROM books
+WHERE pages > (SELECT AVG(pages) FROM books);
+
+-- Books from the most common genre
+SELECT title, genre FROM books
+WHERE genre = (
+  SELECT genre FROM books
+  GROUP BY genre
+  ORDER BY COUNT(*) DESC
+  LIMIT 1
+);
+pizza_sales
