@@ -83,4 +83,3 @@ WHERE genre = (
   ORDER BY COUNT(*) DESC
   LIMIT 1
 );
-pizza_sales
